@@ -1,5 +1,5 @@
 import { expect, test } from '@jest/globals';
-import { Ship } from '../factories/ship';
+import Ship from '../factories/ship';
 
 let ship;
 beforeEach(() => {
@@ -27,9 +27,9 @@ test('Ship sunk when all position are hit', () => {
   expect(ship.isSunk()).toBeTruthy();
 });
 test('Ship did not sink as position 2 still there', () => {
-    ship.hit(0);
-    ship.hit(1);
-    ship.hit(3);
-    ship.hit(4);
-    expect(ship.isSunk()).toBeFalsy();
-  });
+  ship.hit(0);
+  ship.hit(1);
+  ship.hit(3);
+  ship.hit(4);
+  expect(ship.isSunk()).toBeFalsy();
+});

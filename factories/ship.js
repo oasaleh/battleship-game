@@ -33,4 +33,4 @@ Ship.prototype.hit = function hit(position) {
   return this.shipSize;
 };
 
-export { Ship };
+export default Ship;
