@@ -1,6 +1,5 @@
-export function Ship(type) {
+function Ship(type) {
   this.name = type;
-  this.size;
   switch (type) {
     case 'carrier':
       this.size = 5;
@@ -17,17 +16,21 @@ export function Ship(type) {
     case 'boat':
       this.size = 2;
       break;
+    default:
+      break;
   }
   // create an array with positions
   // [...Array(size + 1).keys()].slice(1);
   this.shipSize = new Array(this.size).fill('');
-
-  this.hit = function (position) {
-    this.shipSize[position] = 'hit';
-    return this.shipSize;
-  };
-
-  this.isSunk = function () {
-    return this.shipSize.every((position) => position === 'hit');
-  };
 }
+
+Ship.prototype.isSunk = function isSunk() {
+  return this.shipSize.every((position) => position === 'hit');
+};
+
+Ship.prototype.hit = function hit(position) {
+  this.shipSize[position] = 'hit';
+  return this.shipSize;
+};
+
+export { Ship };
