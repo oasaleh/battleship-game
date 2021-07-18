@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1626639674840" clover="3.2.0">
+  <project timestamp="1626639674840" name="All files">
+    <metrics statements="42" coveredstatements="31" conditionals="10" coveredconditionals="5" methods="12" coveredmethods="7" elements="64" coveredelements="43" complexity="0" loc="42" ncloc="42" packages="1" files="2" classes="2"/>
+    <file name="gameboard.js" path="/Users/omar/Library/Mobile Documents/com~apple~CloudDocs/Courses/Science/Computer Science/TheOdinProject/battleship/factories/gameboard.js">
+      <metrics statements="23" coveredstatements="13" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="3"/>
+      <line num="5" count="5" type="stmt"/>
+      <line num="6" count="5" type="stmt"/>
+      <line num="7" count="50" type="stmt"/>
+      <line num="8" count="50" type="stmt"/>
+      <line num="9" count="500" type="stmt"/>
+      <line num="12" count="5" type="stmt"/>
+      <line num="14" count="5" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="2" type="stmt"/>
+      <line num="19" count="1" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="23" count="1" type="stmt"/>
+      <line num="24" count="0" type="stmt"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="28" count="0" type="stmt"/>
+      <line num="30" count="0" type="stmt"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="35" count="1" type="stmt"/>
+      <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="38" count="1" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="40" count="0" type="stmt"/>
+    </file>
+    <file name="ship.js" path="/Users/omar/Library/Mobile Documents/com~apple~CloudDocs/Courses/Science/Computer Science/TheOdinProject/battleship/factories/ship.js">
+      <metrics statements="19" coveredstatements="18" conditionals="6" coveredconditionals="5" methods="4" coveredmethods="4"/>
+      <line num="2" count="23" type="stmt"/>
+      <line num="3" count="23" type="cond" truecount="5" falsecount="1"/>
+      <line num="5" count="12" type="stmt"/>
+      <line num="6" count="12" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="11" count="8" type="stmt"/>
+      <line num="12" count="8" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="24" count="23" type="stmt"/>
+      <line num="27" count="2" type="stmt"/>
+      <line num="28" count="8" type="stmt"/>
+      <line num="31" count="2" type="stmt"/>
+      <line num="32" count="12" type="stmt"/>
+      <line num="33" count="12" type="stmt"/>
+    </file>
+  </project>
+</coverage>

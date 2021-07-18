@@ -40,16 +40,16 @@ Gameboard.prototype.checkCollision = function checkCollision(shipLocation, board
     return board[shipLocation[i][0]][shipLocation[i][1]].hasShip;
   }
 };
-const carrier = new Ship('carrier');
-const gameboard = new Gameboard();
-const player1Board = gameboard.board;
-gameboard.receiveShot(3, 3);
-console.log(gameboard.board[3][3]);
-const play1CarrierLocation = gameboard.getLocationPoints(4, 5, carrier, 'horizontal');
-console.log(play1CarrierLocation);
-console.log('Is the ship within board borders? ' + gameboard.withinBorders(play1CarrierLocation));
-console.log(
-  'Is the ship colliding with another ship? ' +
-    gameboard.checkCollision(play1CarrierLocation, player1Board)
-);
+// const carrier = new Ship('carrier');
+// const gameboard = new Gameboard();
+// const player1Board = gameboard.board;
+// gameboard.receiveShot(3, 3);
+// console.log(gameboard.board[3][3]);
+// const play1CarrierLocation = gameboard.getLocationPoints(4, 5, carrier, 'horizontal');
+// console.log(play1CarrierLocation);
+// console.log('Is the ship within board borders? ' + gameboard.withinBorders(play1CarrierLocation));
+// console.log(
+//   'Is the ship colliding with another ship? ' +
+//     gameboard.checkCollision(play1CarrierLocation, player1Board)
+// );
 export default Gameboard;
