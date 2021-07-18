@@ -1,10 +1,5 @@
-import { Coordinates } from './coordinates';
-
-// import { Coordinates } from './coordinates';
-export function Ship(type, layout = 'h', coordinates = new Coordinates()) {
+export function Ship(type) {
   this.name = type;
-  this.layout = layout;
-  this.coordinates = coordinates;
   this.size;
   switch (type) {
     case 'carrier':
@@ -36,6 +31,3 @@ export function Ship(type, layout = 'h', coordinates = new Coordinates()) {
     return this.shipSize.every((position) => position === 'hit');
   };
 }
-// const carrier = new Ship('carrier', 'h', new Coordinates(4, 7))
-// console.log(carrier.name)
-//   module.exports = Ship;
