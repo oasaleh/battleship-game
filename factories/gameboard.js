@@ -33,23 +33,37 @@ Gameboard.prototype.getLocationPoints = function getLocationPoints(coordX, coord
   return shipLocation;
 };
 Gameboard.prototype.withinBorders = function withinBorders(shipLocation) {
-  return shipLocation.every((cords) => cords[0] <= 10 && cords[1] <= 10);
+  return shipLocation.every((cords) => cords[0] < 10 && cords[1] < 10);
 };
-Gameboard.prototype.checkCollision = function checkCollision(shipLocation, board) {
+Gameboard.prototype.isThereAnotherShip = function isThereAnotherShip(shipLocation) {
   for (let i = 0; i < shipLocation.length; i += 1) {
-    return board[shipLocation[i][0]][shipLocation[i][1]].hasShip;
+    if (!this.board[shipLocation[i][1]][shipLocation[i][0]].hasShip) {
+      return true;
+    }
   }
+  return false;
+};
+Gameboard.prototype.deploy = function deploy(ship, shipLocation) {
+  for (let i = 0; i < shipLocation.length; i += 1) {
+    this.board[shipLocation[i][1]][shipLocation[i][0]].shipName = ship.name;
+    this.board[shipLocation[i][1]][shipLocation[i][0]].hasShip = true;
+  }
+  return this.board;
 };
 // const carrier = new Ship('carrier');
+// console.log(carrier);
 // const gameboard = new Gameboard();
 // const player1Board = gameboard.board;
 // gameboard.receiveShot(3, 3);
-// console.log(gameboard.board[3][3]);
-// const play1CarrierLocation = gameboard.getLocationPoints(4, 5, carrier, 'horizontal');
+
+// const play1CarrierLocation = gameboard.getLocationPoints(1, 2, carrier, 'horizontal');
 // console.log(play1CarrierLocation);
 // console.log('Is the ship within board borders? ' + gameboard.withinBorders(play1CarrierLocation));
+
+// gameboard.board[2][2].hasShip = true;
 // console.log(
-//   'Is the ship colliding with another ship? ' +
-//     gameboard.checkCollision(play1CarrierLocation, player1Board)
+//   'Is the ship colliding with another ship? ' + gameboard.isThereAnotherShip(play1CarrierLocation)
 // );
+// // gameboard.deploy(carrier, play1CarrierLocation);
+// console.log(gameboard.board);
 export default Gameboard;
