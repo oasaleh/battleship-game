@@ -8,22 +8,7 @@ beforeEach(() => {
   ship = new Ship('carrier');
   gameboard = new Gameboard();
 });
-
-test('Position (4, 6) is shot: ', () => {
-  gameboard.receiveShot(4, 6);
-  expect(gameboard.board[4][6].isShot).toBeTruthy();
-});
-
-test('Position (2, 3) is not shot: ', () => {
-  gameboard.receiveShot(4, 6);
-  expect(gameboard.board[2][6].isShot).toBeFalsy();
-});
-
-test('Shot hit a ship at (4, 5): ', () => {
-  gameboard.board[5][4].hasShip = true;
-  expect(gameboard.checkIfShotHit(4, 5)).toBeTruthy();
-});
-
+/* --------------------------------- hasShip -------------------------------- */
 test('Position (1, 9) does not have a ship: ', () => {
   expect(gameboard.board[1][9].hasShip).toBeFalsy();
 });
@@ -36,7 +21,23 @@ test('Position (2, 6) has a ship: ', () => {
   gameboard.board[2][6].hasShip = true;
   expect(gameboard.board[2][6].hasShip).toBeTruthy();
 });
+/* ------------------------------- receiveShot ------------------------------ */
+test('Position (4, 6) is not shot: ', () => {
+  gameboard.receiveShot(4, 6);
+  expect(gameboard.board[4][6].isShot).toBeFalsy();
+});
 
+test('Position (2, 3) is not shot: ', () => {
+  gameboard.receiveShot(4, 6);
+  expect(gameboard.board[2][6].isShot).toBeFalsy();
+});
+/* ----------------------------- checkIfShotHit ----------------------------- */
+test('Shot hit a ship at (4, 5): ', () => {
+  gameboard.board[5][4].hasShip = true;
+  expect(gameboard.checkIfShotHit(4, 5)).toBeTruthy();
+});
+
+/* ---------------------------- getLocationPoints --------------------------- */
 test('Horizontal coordinates has sequential x values: ', () => {
   const location = gameboard.getLocationPoints(5, 2, ship, 'horizontal');
   expect(location[0][0]).toBe(5);
@@ -53,7 +54,7 @@ test('Vertical coordinates has same x values: ', () => {
   expect(location[3][0]).toBe(5);
   expect(location[4][0]).toBe(5);
 });
-
+/* ------------------------------ withinBorders ----------------------------- */
 test('Ship is within borders: ', () => {
   const vessel = new Ship('carrier');
   const location = gameboard.getLocationPoints(5, 2, vessel, 'vertical');

@@ -14,7 +14,7 @@ function Gameboard() {
   this.board = createBoard();
 }
 Gameboard.prototype.receiveShot = function receiveShot(coordX, coordY) {
-  this.board[coordX][coordY].isShot = true;
+  this.board[coordY][coordX].isShot = true;
 };
 Gameboard.prototype.checkIfShotHit = function checkIfShotHit(coordX, coordY) {
   // return true for hit, false for miss
