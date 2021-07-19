@@ -18,7 +18,7 @@ Gameboard.prototype.receiveShot = function receiveShot(coordX, coordY) {
 };
 Gameboard.prototype.checkIfShotHit = function checkIfShotHit(coordX, coordY) {
   // return true for hit, false for miss
-  return this.board[coordX][coordY].hasShip;
+  return this.board[coordY][coordX].hasShip;
 };
 Gameboard.prototype.getLocationPoints = function getLocationPoints(coordX, coordY, ship, axis) {
   const shipLocation = [];
@@ -37,7 +37,7 @@ Gameboard.prototype.withinBorders = function withinBorders(shipLocation) {
 };
 Gameboard.prototype.isThereAnotherShip = function isThereAnotherShip(shipLocation) {
   for (let i = 0; i < shipLocation.length; i += 1) {
-    if (!this.board[shipLocation[i][1]][shipLocation[i][0]].hasShip) {
+    if (this.board[shipLocation[i][1]][shipLocation[i][0]].hasShip) {
       return true;
     }
   }

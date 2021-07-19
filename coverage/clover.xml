@@ -1,56 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1626655964630" clover="3.2.0">
-  <project timestamp="1626655964630" name="All files">
-    <metrics statements="59" coveredstatements="57" conditionals="10" coveredconditionals="9" methods="13" coveredmethods="12" elements="82" coveredelements="78" complexity="0" loc="59" ncloc="59" packages="1" files="2" classes="2"/>
+<coverage generated="1626706137409" clover="3.2.0">
+  <project timestamp="1626706137410" name="All files">
+    <metrics statements="49" coveredstatements="48" conditionals="12" coveredconditionals="11" methods="13" coveredmethods="13" elements="74" coveredelements="72" complexity="0" loc="49" ncloc="49" packages="1" files="2" classes="2"/>
     <file name="gameboard.js" path="/Users/omar/Library/Mobile Documents/com~apple~CloudDocs/Courses/Science/Computer Science/TheOdinProject/battleship/factories/gameboard.js">
-      <metrics statements="40" coveredstatements="39" conditionals="4" coveredconditionals="4" methods="9" coveredmethods="8"/>
-      <line num="5" count="15" type="stmt"/>
-      <line num="6" count="15" type="stmt"/>
-      <line num="7" count="150" type="stmt"/>
-      <line num="8" count="150" type="stmt"/>
-      <line num="9" count="1500" type="stmt"/>
-      <line num="12" count="15" type="stmt"/>
-      <line num="14" count="15" type="stmt"/>
+      <metrics statements="30" coveredstatements="30" conditionals="6" coveredconditionals="6" methods="9" coveredmethods="9"/>
+      <line num="5" count="20" type="stmt"/>
+      <line num="6" count="20" type="stmt"/>
+      <line num="7" count="200" type="stmt"/>
+      <line num="8" count="200" type="stmt"/>
+      <line num="9" count="2000" type="stmt"/>
+      <line num="12" count="20" type="stmt"/>
+      <line num="14" count="20" type="stmt"/>
       <line num="16" count="1" type="stmt"/>
-      <line num="17" count="3" type="stmt"/>
+      <line num="17" count="2" type="stmt"/>
       <line num="19" count="1" type="stmt"/>
-      <line num="21" count="0" type="stmt"/>
+      <line num="21" count="1" type="stmt"/>
       <line num="23" count="1" type="stmt"/>
-      <line num="24" count="12" type="stmt"/>
-      <line num="25" count="12" type="stmt"/>
-      <line num="26" count="54" type="cond" truecount="2" falsecount="0"/>
-      <line num="28" count="28" type="stmt"/>
-      <line num="30" count="26" type="stmt"/>
-      <line num="33" count="12" type="stmt"/>
+      <line num="24" count="15" type="stmt"/>
+      <line num="25" count="15" type="stmt"/>
+      <line num="26" count="69" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="33" type="stmt"/>
+      <line num="30" count="36" type="stmt"/>
+      <line num="33" count="15" type="stmt"/>
       <line num="35" count="1" type="stmt"/>
-      <line num="36" count="22" type="cond" truecount="2" falsecount="0"/>
+      <line num="36" count="17" type="cond" truecount="2" falsecount="0"/>
       <line num="38" count="1" type="stmt"/>
-      <line num="39" count="3" type="stmt"/>
-      <line num="40" count="3" type="stmt"/>
-      <line num="43" count="1" type="stmt"/>
-      <line num="44" count="1" type="stmt"/>
-      <line num="45" count="5" type="stmt"/>
-      <line num="46" count="5" type="stmt"/>
-      <line num="48" count="1" type="stmt"/>
-      <line num="50" count="1" type="stmt"/>
-      <line num="51" count="1" type="stmt"/>
-      <line num="52" count="1" type="stmt"/>
-      <line num="53" count="1" type="stmt"/>
-      <line num="54" count="1" type="stmt"/>
-      <line num="56" count="1" type="stmt"/>
-      <line num="57" count="1" type="stmt"/>
-      <line num="58" count="1" type="stmt"/>
-      <line num="59" count="1" type="stmt"/>
-      <line num="63" count="1" type="stmt"/>
-      <line num="64" count="1" type="stmt"/>
-      <line num="65" count="1" type="stmt"/>
+      <line num="39" count="5" type="stmt"/>
+      <line num="40" count="11" type="cond" truecount="2" falsecount="0"/>
+      <line num="41" count="3" type="stmt"/>
+      <line num="44" count="2" type="stmt"/>
+      <line num="46" count="1" type="stmt"/>
+      <line num="47" count="2" type="stmt"/>
+      <line num="48" count="10" type="stmt"/>
+      <line num="49" count="10" type="stmt"/>
+      <line num="51" count="2" type="stmt"/>
     </file>
     <file name="ship.js" path="/Users/omar/Library/Mobile Documents/com~apple~CloudDocs/Courses/Science/Computer Science/TheOdinProject/battleship/factories/ship.js">
       <metrics statements="19" coveredstatements="18" conditionals="6" coveredconditionals="5" methods="4" coveredmethods="4"/>
-      <line num="2" count="42" type="stmt"/>
-      <line num="3" count="42" type="cond" truecount="5" falsecount="1"/>
-      <line num="5" count="33" type="stmt"/>
-      <line num="6" count="33" type="stmt"/>
+      <line num="2" count="51" type="stmt"/>
+      <line num="3" count="51" type="cond" truecount="5" falsecount="1"/>
+      <line num="5" count="42" type="stmt"/>
+      <line num="6" count="42" type="stmt"/>
       <line num="8" count="2" type="stmt"/>
       <line num="9" count="2" type="stmt"/>
       <line num="11" count="4" type="stmt"/>
@@ -60,7 +50,7 @@
       <line num="17" count="2" type="stmt"/>
       <line num="18" count="2" type="stmt"/>
       <line num="20" count="0" type="stmt"/>
-      <line num="24" count="42" type="stmt"/>
+      <line num="24" count="51" type="stmt"/>
       <line num="27" count="2" type="stmt"/>
       <line num="28" count="8" type="stmt"/>
       <line num="31" count="2" type="stmt"/>

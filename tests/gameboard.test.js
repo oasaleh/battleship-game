@@ -19,7 +19,12 @@ test('Position (2, 3) is not shot: ', () => {
   expect(gameboard.board[2][6].isShot).toBeFalsy();
 });
 
-test('Position (1, 9) is does not have a ship: ', () => {
+test('Shot hit a ship at (4, 5): ', () => {
+  gameboard.board[5][4].hasShip = true;
+  expect(gameboard.checkIfShotHit(4, 5)).toBeTruthy();
+});
+
+test('Position (1, 9) does not have a ship: ', () => {
   expect(gameboard.board[1][9].hasShip).toBeFalsy();
 });
 
@@ -74,7 +79,7 @@ test('Ship is within borders: ', () => {
   const location = gameboard.getLocationPoints(2, 2, vessel, 'vertical');
   expect(gameboard.withinBorders(location)).toBeTruthy();
 });
-
+/* --------------------------- isThereAnotherShip --------------------------- */
 test('Ship collided: ', () => {
   const vessel1 = new Ship('carrier');
   const vessel2 = new Ship('carrier');
@@ -90,4 +95,49 @@ test('Ship collided: ', () => {
   const location2 = gameboard.getLocationPoints(2, 2, vessel2, 'vertical');
   gameboard.board[2][2].hasShip = true;
   expect(gameboard.isThereAnotherShip(location1)).toBeTruthy();
+});
+test('There is not another ship here: ', () => {
+  const vessel1 = new Ship('carrier');
+  const vessel2 = new Ship('carrier');
+  const location1 = gameboard.getLocationPoints(1, 2, vessel1, 'horizontal');
+  const location2 = gameboard.getLocationPoints(2, 2, vessel2, 'vertical');
+  expect(gameboard.isThereAnotherShip(location1)).toBeFalsy();
+});
+test('There is another ship here: ', () => {
+  const location = [
+    [3, 4],
+    [2, 4],
+  ];
+  gameboard.board[4][3].hasShip = true;
+  expect(gameboard.isThereAnotherShip(location)).toBeTruthy();
+});
+test('There is not another ship here: ', () => {
+  const location = [
+    [3, 4],
+    [2, 4],
+  ];
+  // gameboard.board[4][3].hasShip = true;
+  expect(gameboard.isThereAnotherShip(location)).toBeFalsy();
+});
+/* --------------------------------- deploy --------------------------------- */
+test('Deploy ship at (2, 3) vertically: ', () => {
+  const vessel1 = new Ship('carrier');
+  const location1 = gameboard.getLocationPoints(2, 3, vessel1, 'vertical');
+  gameboard.deploy(vessel1, location1);
+  expect(gameboard.board[3][2].hasShip).toBeTruthy();
+  expect(gameboard.board[4][2].hasShip).toBeTruthy();
+  expect(gameboard.board[5][2].hasShip).toBeTruthy();
+  expect(gameboard.board[6][2].hasShip).toBeTruthy();
+  expect(gameboard.board[7][2].hasShip).toBeTruthy();
+});
+
+test('Deploy ship at (2, 3) vertically: ', () => {
+  const vessel1 = new Ship('carrier');
+  const location1 = gameboard.getLocationPoints(2, 3, vessel1, 'horizontal');
+  gameboard.deploy(vessel1, location1);
+  expect(gameboard.board[3][2].hasShip).toBeTruthy();
+  expect(gameboard.board[3][3].hasShip).toBeTruthy();
+  expect(gameboard.board[3][4].hasShip).toBeTruthy();
+  expect(gameboard.board[3][5].hasShip).toBeTruthy();
+  expect(gameboard.board[3][6].hasShip).toBeTruthy();
 });
