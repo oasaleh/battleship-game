@@ -8,6 +8,6 @@ function Player(name) {
 Player.prototype.toggleActive = function toggleActive() {
   this.isActive = !this.isActive;
 };
-const player01 = new Player('Omar');
-console.log(player01.gameboard.board[0][0].hasShip);
+// const player01 = new Player('Omar');
+// console.log(player01.gameboard.board[0][0].hasShip);
 export default Player;
