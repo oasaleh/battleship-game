@@ -1,0 +1,76 @@
+:root {
+  --grid-cols: 1;
+  --grid-rows: 1;
+}
+html {
+  /* background: url(assets/images/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#gameTitle {
+  text-align: center;
+}
+#titleImg {
+  width: 500px;
+  height: auto;
+}
+#greeting {
+  padding-top: 40px;
+  /* margin: 40px auto 40px auto; */
+  text-align: center;
+}
+#name {
+  text-align: center;
+  display: block;
+  margin: 20px auto 20px auto;
+  border-radius: 5px;
+  border: 0.5px solid;
+}
+#startButton {
+}
+#gameScreen {
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-between;
+
+align-items: center;
+align-content: center;
+
+margin: 20px 190px 20px 190px;
+
+}
+#player01Board {
+  margin: 0;
+  display: grid;
+  grid-gap: 0px;
+  grid-template-rows: repeat(var(--grid-rows), 40px);
+  grid-template-columns: repeat(var(--grid-cols), 40px);
+  width: 400px;
+  height: 400px;
+}
+#player02Board {
+  margin: 0;
+  display: grid;
+  grid-gap: 0px;
+  grid-template-rows: repeat(var(--grid-rows), 40px);
+  grid-template-columns: repeat(var(--grid-cols), 40px);
+  width: 400px;
+  height: 400px;
+}
+.grid-item1 {
+  padding: 1em;
+  border: 0.5px solid black;
+  text-align: center;
+  background-color: green;
+}
+.grid-item2 {
+    padding: 1em;
+    border: 0.5px solid black;
+    text-align: center;
+    background-color: red;
+  }
