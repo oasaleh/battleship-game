@@ -4,8 +4,8 @@ import Gameboard from './factories/gameboard.mjs';
 
 const player01Board = document.getElementById('player01Board');
 const player02Board = document.getElementById('player02Board');
-let playerOne;
-let playerTwo;
+// let playerOne;
+// let playerTwo;
 
 function removeWelcomeScreen() {
   document.getElementById('welcomeScreen').style.display = 'none';
@@ -14,47 +14,50 @@ function removeWelcomeScreen() {
 function sendCoords(e) {
   console.log(`(x, y)\n${e.target.coordX}, ${e.target.coordY}`);
   console.log([e.target.coordX, e.target.coordY]);
-  let coordX = e.target.coordX;
-  let coordY = e.target.coordY;
+  const { coordX, coordY } = e.target;
+  const coordsArray = [coordX, coordY];
   // deployHere
-  return [coordX, coordY];
+  // return coordsArray;
 }
-function renderBoards(rows, cols) {
-  player01Board.style.setProperty('--grid-rows', rows);
-  player02Board.style.setProperty('--grid-rows', rows);
-  player01Board.style.setProperty('--grid-cols', cols);
-  player02Board.style.setProperty('--grid-cols', cols);
+function renderBoard(board, htmlBoardContainer) {
+  // shampoo grid
 
-  for (let r = 0; r < 10; r += 1) {
-    for (let c = 0; c < 10; c += 1) {
-      const cell1 = document.createElement('div');
-      const cell2 = document.createElement('div');
-      cell1.coordY = r + 1;
-      cell1.coordX = c + 1;
-      cell2.coordY = r + 1;
-      cell2.coordX = c + 1;
-      cell1.addEventListener('click', sendCoords);
-      cell2.addEventListener('click', sendCoords);
+  const columns = board[0].length;
+  const rows = board.length;
 
-      player01Board.appendChild(cell1).className = 'grid-item1';
-      player02Board.appendChild(cell2).className = 'grid-item2';
+  htmlBoardContainer.style.setProperty('--grid-rows', rows);
+  htmlBoardContainer.style.setProperty('--grid-cols', columns);
+
+  for (let r = 0; r < rows; r += 1) {
+    for (let c = 0; c < columns; c += 1) {
+      // if (board[r][c].hasShip) {
+
+      // }
+      const cell = document.createElement('div');
+      cell.className = 'grid-item1';
+      cell.coordY = r + 1;
+      cell.coordX = c + 1;
+      cell.addEventListener('click', sendCoords);
+      htmlBoardContainer.appendChild(cell);
     }
   }
 }
 function create2Players() {
   const player01Name = document.getElementById('name').value;
   const player02Name = 'ai';
-  playerOne = new Player(player01Name);
-  playerTwo = new Player(player02Name);
+  const playerOne = new Player(player01Name);
+  const playerTwo = new Player(player02Name);
+  return { playerOne, playerTwo };
 }
 function init() {
-  create2Players();
+  // const playerOne = create2players().playerOne
+  const { playerOne, playerTwo } = create2Players();
   document.getElementById('name').value = '';
-  renderBoards(10, 10);
+  renderBoard(playerOne.gameboard.board, player01Board);
+  renderBoard(playerTwo.gameboard.board, player02Board);
   removeWelcomeScreen();
   playerOne.toggleActive();
-  console.log(playerOne.isActive)
+  console.log(playerOne.isActive);
   return false;
 }
 document.getElementById('greetingForm').onsubmit = init;
-
