@@ -11,11 +11,12 @@ function removeWelcomeScreen() {
   document.getElementById('welcomeScreen').style.display = 'none';
   document.getElementById('welcomeScreen').style.visibility = 'hidden';
 }
-function grabCoords(e) {
+function sendCoords(e) {
   console.log(`(x, y)\n${e.target.coordX}, ${e.target.coordY}`);
   console.log([e.target.coordX, e.target.coordY]);
   let coordX = e.target.coordX;
   let coordY = e.target.coordY;
+  // deployHere
   return [coordX, coordY];
 }
 function renderBoards(rows, cols) {
@@ -32,8 +33,8 @@ function renderBoards(rows, cols) {
       cell1.coordX = c + 1;
       cell2.coordY = r + 1;
       cell2.coordX = c + 1;
-      cell1.addEventListener('click', grabCoords);
-      cell2.addEventListener('click', grabCoords);
+      cell1.addEventListener('click', sendCoords);
+      cell2.addEventListener('click', sendCoords);
 
       player01Board.appendChild(cell1).className = 'grid-item1';
       player02Board.appendChild(cell2).className = 'grid-item2';
@@ -46,11 +47,14 @@ function create2Players() {
   playerOne = new Player(player01Name);
   playerTwo = new Player(player02Name);
 }
-function startPlay() {
+function init() {
   create2Players();
   document.getElementById('name').value = '';
   renderBoards(10, 10);
   removeWelcomeScreen();
+  playerOne.toggleActive();
+  console.log(playerOne.isActive)
   return false;
 }
-document.getElementById('greetingForm').onsubmit = startPlay;
+document.getElementById('greetingForm').onsubmit = init;
+
