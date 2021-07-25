@@ -1,6 +1,7 @@
 import Player from './factories/player.mjs';
 import Ship from './factories/ship.mjs';
 import Gameboard from './factories/gameboard.mjs';
+import deployFleet from './logic/deploying.mjs';
 
 const player01Board = document.getElementById('player01Board');
 const player02Board = document.getElementById('player02Board');
@@ -55,6 +56,7 @@ function init() {
   document.getElementById('name').value = '';
   renderBoard(playerOne.gameboard.board, player01Board);
   renderBoard(playerTwo.gameboard.board, player02Board);
+  deployFleet(playerOne);
   removeWelcomeScreen();
   playerOne.toggleActive();
   console.log(playerOne.isActive);

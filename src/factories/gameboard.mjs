@@ -1,4 +1,4 @@
-// import Ship from './ship.mjs';
+import Ship from './ship.mjs';
 
 function Gameboard() {
   function createBoard() {
@@ -30,6 +30,8 @@ Gameboard.prototype.getLocationPoints = function getLocationPoints(coordX, coord
       shipLocation.push([coordX, coordY + i]);
     }
   }
+  // Return array of arrays. Like this one:
+  // [ [ 1, 2 ], [ 2, 2 ], [ 3, 2 ], [ 4, 2 ], [ 5, 2 ] ]
   return shipLocation;
 };
 Gameboard.prototype.withinBorders = function withinBorders(shipLocation) {
@@ -64,6 +66,6 @@ Gameboard.prototype.deploy = function deploy(ship, shipLocation) {
 // console.log(
 //   'Is the ship colliding with another ship? ' + gameboard.isThereAnotherShip(play1CarrierLocation)
 // );
-// // gameboard.deploy(carrier, play1CarrierLocation);
+// gameboard.deploy(carrier, play1CarrierLocation);
 // console.log(gameboard.board);
 export default Gameboard;
