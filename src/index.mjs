@@ -1,7 +1,7 @@
 import Player from './factories/player.mjs';
 import Ship from './factories/ship.mjs';
 import Gameboard from './factories/gameboard.mjs';
-import deployFleet from './logic/deploying.mjs';
+import deployFleet from './logic/deployment.mjs';
 
 const player01Board = document.getElementById('player01Board');
 const player02Board = document.getElementById('player02Board');
@@ -13,6 +13,7 @@ function removeWelcomeScreen() {
   document.getElementById('welcomeScreen').style.visibility = 'hidden';
 }
 function sendCoords(e) {
+  console.log(e)
   console.log(`(x, y)\n${e.target.coordX}, ${e.target.coordY}`);
   console.log([e.target.coordX, e.target.coordY]);
   const { coordX, coordY } = e.target;
@@ -54,12 +55,13 @@ function init() {
   // const playerOne = create2players().playerOne
   const { playerOne, playerTwo } = create2Players();
   document.getElementById('name').value = '';
+  deployFleet(playerOne);
+  deployFleet(playerTwo);
   renderBoard(playerOne.gameboard.board, player01Board);
   renderBoard(playerTwo.gameboard.board, player02Board);
-  deployFleet(playerOne);
   removeWelcomeScreen();
   playerOne.toggleActive();
-  console.log(playerOne.isActive);
+  // console.log(playerOne.isActive);
   return false;
 }
 document.getElementById('greetingForm').onsubmit = init;
