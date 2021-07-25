@@ -13,7 +13,7 @@ function removeWelcomeScreen() {
   document.getElementById('welcomeScreen').style.visibility = 'hidden';
 }
 function sendCoords(e) {
-  console.log(e)
+  console.log(e);
   console.log(`(x, y)\n${e.target.coordX}, ${e.target.coordY}`);
   console.log([e.target.coordX, e.target.coordY]);
   const { coordX, coordY } = e.target;
@@ -21,24 +21,27 @@ function sendCoords(e) {
   // deployHere
   // return coordsArray;
 }
-function renderBoard(board, htmlBoardContainer) {
+function renderBoard(player, htmlBoardContainer) {
   // shampoo grid
 
-  const columns = board[0].length;
-  const rows = board.length;
+  const columns = player.gameboard.board[0].length;
+  const rows = player.gameboard.board[0].length;
 
   htmlBoardContainer.style.setProperty('--grid-rows', rows);
   htmlBoardContainer.style.setProperty('--grid-cols', columns);
 
   for (let r = 0; r < rows; r += 1) {
     for (let c = 0; c < columns; c += 1) {
-      // if (board[r][c].hasShip) {
-
-      // }
       const cell = document.createElement('div');
-      cell.className = 'grid-item1';
-      cell.coordY = r + 1;
-      cell.coordX = c + 1;
+      if (player.gameboard.board[r][c].hasShip && player.name !== 'ai') {
+        cell.className = 'hasShip ';
+      }
+      cell.className += 'grid-item';
+      cell.playerData = {};
+      cell.playerData.coordX = c + 1;
+      cell.playerData.coordY = r + 1;
+      cell.playerData.hasShip = player.gameboard.board[r][c].hasShip;
+      cell.playerData.isShot = player.gameboard.board[r][c].isShot;
       cell.addEventListener('click', sendCoords);
       htmlBoardContainer.appendChild(cell);
     }
@@ -57,8 +60,8 @@ function init() {
   document.getElementById('name').value = '';
   deployFleet(playerOne);
   deployFleet(playerTwo);
-  renderBoard(playerOne.gameboard.board, player01Board);
-  renderBoard(playerTwo.gameboard.board, player02Board);
+  renderBoard(playerOne, player01Board);
+  renderBoard(playerTwo, player02Board);
   removeWelcomeScreen();
   playerOne.toggleActive();
   // console.log(playerOne.isActive);

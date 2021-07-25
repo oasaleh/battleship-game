@@ -33,16 +33,15 @@ html {
 #startButton {
 }
 #gameScreen {
-display: flex;
-flex-direction: row;
-flex-wrap: nowrap;
-justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 
-align-items: center;
-align-content: center;
+  align-items: center;
+  align-content: center;
 
-margin: 90px 190px 20px 190px;
-
+  margin: 90px 190px 20px 190px;
 }
 #player01Board {
   margin: 0;
@@ -62,15 +61,18 @@ margin: 90px 190px 20px 190px;
   width: 400px;
   height: 400px;
 }
-.grid-item1 {
+.grid-item {
   padding: 1em;
   border: 0.5px solid black;
   text-align: center;
-  background-color: green;
+  background-color: #51A2BF;
 }
 .grid-item2 {
-    padding: 1em;
-    border: 0.5px solid black;
-    text-align: center;
-    background-color: red;
-  }
+  padding: 1em;
+  border: 0.5px solid black;
+  text-align: center;
+  background-color: red;
+}
+.hasShip {
+  background-color: #A6ACAD;
+}
