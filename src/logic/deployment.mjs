@@ -54,4 +54,4 @@ function deployFleet(player) {
   console.log(player.gameboard.board);
 }
 
-export default deployFleet;
+export { randomCoord, deployFleet };
