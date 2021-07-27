@@ -33,15 +33,15 @@ function renderBoard(player) {
         cell.className = 'hasShip ';
       }
       if (player.gameboard.board[r][c].isShot) {
-        cell.innerText = 'O';
+        cell.innerText = 'X';
       }
       if (player.gameboard.board[r][c].isShot && player.gameboard.board[r][c].hasShip) {
-        cell.innerText = 'X';
+        cell.className = 'shipShot ';
       }
       cell.className += 'grid-item';
       cell.playerData = {};
-      cell.playerData.coordX = c + 1;
-      cell.playerData.coordY = r + 1;
+      cell.playerData.coordX = c ;
+      cell.playerData.coordY = r;
       cell.playerData.hasShip = player.gameboard.board[r][c].hasShip;
       cell.playerData.isShot = player.gameboard.board[r][c].isShot;
       cell.playerData.player = player;
@@ -57,28 +57,37 @@ function whichIsActive(player, opponent) {
 }
 
 function aiAttack(player) {
-  const coords = randomCoord();
-  const coordX = coords[0];
-  const coordY = coords[1];
-  if (!player.gameboard.board[coordY][coordX].isShot) {
-    player.gameboard.board[coordY][coordX].isShot = true;
-    console.log('ai attacked.');
-    renderBoard(player);
+  let coords = randomCoord();
+  let coordX = coords[0];
+  let coordY = coords[1];
+  while (player.gameboard.board[coordY][coordX].isShot) {
+    coords = randomCoord();
+    coordX = coords[0];
+    coordY = coords[1];
   }
+  player.gameboard.receiveShot(coordX, coordY);
+  console.log('ai attacked.');
+  renderBoard(player);
 }
 
 function attack(player, playerData) {
   if (player === playerOne && playerData.player === playerTwo) {
     console.log('playerOne attacked.');
-    aiAttack(player);
-    // player.toggleActive();
-  } else if (player === playerTwo && playerData.player === playerOne && player.name !== 'ai') {
-    console.log('playerTwo attacked.');
-  } else if (player === playerTwo && playerData.player === playerOne && player.name === 'ai') {
-    console.log('ai attacked.');
-    aiAttack(player);
-    player.toggleActive();
+    const { coordX, coordY } = playerData;
+    if (!playerTwo.gameboard.board[coordY][coordX].isShot) {
+      playerTwo.gameboard.receiveShot(coordX, coordY);
+      renderBoard(playerTwo);
+      aiAttack(player);
+    }
   }
+  // player.toggleActive();
+  // } else if (player === playerTwo && playerData.player === playerOne && player.name !== 'ai') {
+  //   console.log('playerTwo attacked.');
+  // // } else if (player === playerTwo && playerData.player === playerOne && player.name === 'ai') {
+  // //   console.log('ai attacked.');
+  // //   aiAttack(player);
+  // //   player.toggleActive();
+  // }
 }
 
 function think(event) {

@@ -51,6 +51,7 @@ html {
   grid-template-columns: repeat(var(--grid-cols), 40px);
   width: 400px;
   height: 400px;
+  text-align: center;
 }
 #player02Board {
   margin: 0;
@@ -60,19 +61,26 @@ html {
   grid-template-columns: repeat(var(--grid-cols), 40px);
   width: 400px;
   height: 400px;
+  text-align: center;
 }
 .grid-item {
   padding: 1em;
   border: 0.5px solid black;
   text-align: center;
-  background-color: #51A2BF;
+  vertical-align: middle;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:120%;
+  font-weight: bold;
+  margin: 0px;
+  padding: 1px;
+  background-color: #51a2bf;
 }
-.grid-item2 {
-  padding: 1em;
-  border: 0.5px solid black;
-  text-align: center;
-  background-color: red;
-}
+
 .hasShip {
-  background-color: #A6ACAD;
+  background-color: #a6acad;
+}
+.shipShot {
+  background-color: red;
 }
