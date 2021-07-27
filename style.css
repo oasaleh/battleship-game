@@ -84,3 +84,14 @@ html {
 .shipShot {
   background-color: red;
 }
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.afterGame{
+
+  text-align: center;
+  align-content: center;
+  align-items: center;
+}

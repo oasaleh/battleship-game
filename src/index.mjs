@@ -9,13 +9,24 @@ let playerOne;
 let playerTwo;
 let activePlayer;
 
+function restartGame() {
+  window.location.reload();
+}
 function whichIsActive(player, opponent) {
   activePlayer = player.isActive ? player : opponent;
   // return activePlayer;
 }
 function lost(player) {
   if (player.spots === 0) {
-    console.log(player.name + ' lost!');
+    const winnerName = document.getElementById('winnerName');
+    const restartBtn = document.getElementById('restart');
+    const gameScreen = document.getElementById('gameScreen');
+    restartBtn.addEventListener('click', restartGame);
+    gameScreen.classList.add('hidden');
+    winnerName.innerText = player.name.toUpperCase() + ' lost!';
+    restartBtn.classList.remove('hidden');
+    winnerName.classList.remove('hidden');
+    // console.log(player.name + ' lost!');
   }
 }
 function aiAttack(player) {
@@ -32,13 +43,13 @@ function aiAttack(player) {
     player.destroy();
   }
   lost(player);
-  console.log('ai attacked.');
+  // console.log('ai attacked.');
   renderBoard(player);
 }
 
 function attack(player, playerData) {
   if (player === playerOne && playerData.player === playerTwo) {
-    console.log('playerOne attacked.');
+    // console.log('playerOne attacked.');
     const { coordX, coordY } = playerData;
     if (!playerTwo.gameboard.board[coordY][coordX].isShot) {
       playerTwo.gameboard.receiveShot(coordX, coordY);
@@ -106,8 +117,8 @@ function removeWelcomeScreen() {
 }
 
 function sendCoords(e) {
-  console.log(e);
-  console.log(`(x, y)\n${e.target.playerData.coordX}, ${e.target.playerData.coordY}`);
+  // console.log(e);
+  // console.log(`(x, y)\n${e.target.playerData.coordX}, ${e.target.playerData.coordY}`);
   const { coordX, coordY } = e.target.playerData;
   const coordsArray = [coordX, coordY];
   // deployHere
@@ -135,9 +146,9 @@ function init() {
   renderBoard(playerTwo);
   removeWelcomeScreen();
   playerOne.toggleActive();
-  // console.log(playerOne.isActive);
+  // // console.log(playerOne.isActive);
   return false;
 }
 document.getElementById('greetingForm').onsubmit = init;
-// console.log(playerOne);
+// // console.log(playerOne);
 export default { playerOne, playerTwo };
