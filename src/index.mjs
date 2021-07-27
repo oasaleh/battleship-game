@@ -9,6 +9,55 @@ let playerOne;
 let playerTwo;
 let activePlayer;
 
+function whichIsActive(player, opponent) {
+  activePlayer = player.isActive ? player : opponent;
+  // return activePlayer;
+}
+function lost(player) {
+  if (player.spots === 0) {
+    console.log(player.name + ' lost!');
+  }
+}
+function aiAttack(player) {
+  let coords = randomCoord();
+  let coordX = coords[0];
+  let coordY = coords[1];
+  while (player.gameboard.board[coordY][coordX].isShot) {
+    coords = randomCoord();
+    coordX = coords[0];
+    coordY = coords[1];
+  }
+  player.gameboard.receiveShot(coordX, coordY);
+  if (player.gameboard.board[coordY][coordX].hasShip) {
+    player.destroy();
+  }
+  lost(player);
+  console.log('ai attacked.');
+  renderBoard(player);
+}
+
+function attack(player, playerData) {
+  if (player === playerOne && playerData.player === playerTwo) {
+    console.log('playerOne attacked.');
+    const { coordX, coordY } = playerData;
+    if (!playerTwo.gameboard.board[coordY][coordX].isShot) {
+      playerTwo.gameboard.receiveShot(coordX, coordY);
+      renderBoard(playerTwo);
+      if (playerTwo.gameboard.board[coordY][coordX].hasShip) {
+        playerTwo.destroy();
+      }
+      lost(playerTwo);
+      aiAttack(player);
+    }
+  }
+}
+
+function think(event) {
+  whichIsActive(playerOne, playerTwo);
+  const { playerData } = event.target;
+  attack(activePlayer, playerData);
+}
+
 function renderBoard(player) {
   let htmlBoardContainer;
   // const player01Board = document.getElementById('player01Board');
@@ -40,7 +89,7 @@ function renderBoard(player) {
       }
       cell.className += 'grid-item';
       cell.playerData = {};
-      cell.playerData.coordX = c ;
+      cell.playerData.coordX = c;
       cell.playerData.coordY = r;
       cell.playerData.hasShip = player.gameboard.board[r][c].hasShip;
       cell.playerData.isShot = player.gameboard.board[r][c].isShot;
@@ -49,51 +98,6 @@ function renderBoard(player) {
       htmlBoardContainer.appendChild(cell);
     }
   }
-}
-
-function whichIsActive(player, opponent) {
-  activePlayer = player.isActive ? player : opponent;
-  // return activePlayer;
-}
-
-function aiAttack(player) {
-  let coords = randomCoord();
-  let coordX = coords[0];
-  let coordY = coords[1];
-  while (player.gameboard.board[coordY][coordX].isShot) {
-    coords = randomCoord();
-    coordX = coords[0];
-    coordY = coords[1];
-  }
-  player.gameboard.receiveShot(coordX, coordY);
-  console.log('ai attacked.');
-  renderBoard(player);
-}
-
-function attack(player, playerData) {
-  if (player === playerOne && playerData.player === playerTwo) {
-    console.log('playerOne attacked.');
-    const { coordX, coordY } = playerData;
-    if (!playerTwo.gameboard.board[coordY][coordX].isShot) {
-      playerTwo.gameboard.receiveShot(coordX, coordY);
-      renderBoard(playerTwo);
-      aiAttack(player);
-    }
-  }
-  // player.toggleActive();
-  // } else if (player === playerTwo && playerData.player === playerOne && player.name !== 'ai') {
-  //   console.log('playerTwo attacked.');
-  // // } else if (player === playerTwo && playerData.player === playerOne && player.name === 'ai') {
-  // //   console.log('ai attacked.');
-  // //   aiAttack(player);
-  // //   player.toggleActive();
-  // }
-}
-
-function think(event) {
-  whichIsActive(playerOne, playerTwo);
-  const { playerData } = event.target;
-  attack(activePlayer, playerData);
 }
 
 function removeWelcomeScreen() {
