@@ -71,7 +71,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size:120%;
+  font-size: 120%;
   font-weight: bold;
   margin: 0px;
   padding: 1px;
@@ -89,8 +89,7 @@ html {
   visibility: hidden;
 }
 
-.afterGame{
-
+.afterGame {
   text-align: center;
   align-content: center;
   align-items: center;

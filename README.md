@@ -1,7 +1,7 @@
 # Battleship
-Battleship is a game consists of marine vessels. The aim is to sink opponent's
-vessels before your vessels are sunk.
+<div style="text-align: justify">
+Battleship is a strategy type guessing game for two players. It is played on ruled grids (paper or board) on which each player's fleet of ships (including battleships) are marked. The locations of the fleets are concealed from the other player. Players alternate turns calling "shots" at the other player's ships, and the objective of the game is to destroy the opposing player's fleet.
+</div>
 
-For more information check out this [link](https://en.wikipedia.org/wiki/Battleship_(game)).
-
-###### This game is under development.
+## Demo
+To try this game, click [here](https://oasaleh.github.io/battleship-game/).
